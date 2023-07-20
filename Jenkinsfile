@@ -3,7 +3,13 @@ pipeline {
     dockerimagename = "nikhildocker28/frontend-k8s"
     dockerimage = ""
   }
-  agent any  
+  agent any
+  stages {
+    stage('Git Checkout') {
+      steps {
+        git 'https://github.com/nikgit7/node-js-project.git'
+      }
+    }
     stage('Build Image') {
       steps {
         script {
